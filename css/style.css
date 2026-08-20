@@ -97,6 +97,55 @@ body.locked { overflow: hidden; height: 100vh; }
 
 img { max-width: 100%; display: block; }
 
+/* ===== Pantalla de carga inicial ===== */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  background: linear-gradient(155deg, var(--cream) 0%, var(--cream-alt) 100%);
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+.loading-screen.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.loading-screen__spinner {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 2px solid var(--gold-light);
+  border-top-color: var(--gold);
+  animation: loading-spin 0.9s linear infinite;
+}
+.loading-screen__text {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  color: var(--heading);
+}
+.loading-screen__countdown {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.6rem;
+  letter-spacing: 0.05em;
+  color: var(--gold-dark);
+  min-width: 2.4ch;
+  text-align: center;
+}
+@keyframes loading-spin {
+  to { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .loading-screen__spinner { animation: none; border-top-color: var(--gold-light); }
+}
+
 /* ===== Reveal animations ===== */
 .reveal {
   opacity: 0;

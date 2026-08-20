@@ -4,6 +4,58 @@ if ('scrollRestoration' in history) {
 }
 window.scrollTo(0, 0);
 
+// ===== Pantalla de carga: espera lo esencial (fotos del sobre/portada y música) =====
+const loadingScreen = document.getElementById('loadingScreen');
+if (loadingScreen) {
+  const preloadImage = (src) => new Promise((resolve) => {
+    const img = new Image();
+    img.onload = resolve;
+    img.onerror = resolve;
+    img.src = src;
+  });
+
+  const audioEl = document.getElementById('bgMusic');
+  const audioReady = new Promise((resolve) => {
+    if (!audioEl || audioEl.readyState >= 3) {
+      resolve();
+      return;
+    }
+    audioEl.addEventListener('canplaythrough', resolve, { once: true });
+    audioEl.addEventListener('error', resolve, { once: true });
+  });
+
+  const fontsReady = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
+
+  const essentialAssets = Promise.all([
+    preloadImage('img/rosas.png'),
+    preloadImage('img/vestido.png'),
+    audioReady,
+    fontsReady,
+  ]);
+
+  const COUNTDOWN_SECONDS = 10;
+  const countdownEl = document.getElementById('loadingCountdown');
+  let remaining = COUNTDOWN_SECONDS;
+  if (countdownEl) countdownEl.textContent = String(remaining);
+  const countdownInterval = setInterval(() => {
+    remaining = Math.max(0, remaining - 1);
+    if (countdownEl) countdownEl.textContent = String(remaining);
+    if (remaining === 0) clearInterval(countdownInterval);
+  }, 1000);
+
+  const countdownDone = new Promise((resolve) => setTimeout(resolve, COUNTDOWN_SECONDS * 1000));
+  const safetyTimeout = new Promise((resolve) => setTimeout(resolve, COUNTDOWN_SECONDS * 1000 + 4000));
+
+  Promise.race([
+    Promise.all([essentialAssets, countdownDone]),
+    safetyTimeout,
+  ]).then(() => {
+    clearInterval(countdownInterval);
+    loadingScreen.classList.add('is-hidden');
+    setTimeout(() => loadingScreen.remove(), 700);
+  });
+}
+
 // ===== Destellos ambientales (estrellitas relucientes) =====
 const sparkleField = document.getElementById('sparkleField');
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
