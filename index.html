@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mis XV Años · Monserath</title>
+<meta name="description" content="Invitación digital de XV años de Monserath">
+
+<!-- Vista previa al compartir (WhatsApp, Facebook, etc.) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mis XV Años · Monserath">
+<meta property="og:description" content="Te invito a celebrar mis XV años. Toca para abrir el sobre de invitación 💌">
+<meta property="og:image" content="https://TU-DOMINIO-AQUI/img/sobre_monse.png">
+<meta property="og:image:width" content="648">
+<meta property="og:image:height" content="526">
+<meta property="og:url" content="https://TU-DOMINIO-AQUI/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mis XV Años · Monserath">
+<meta name="twitter:description" content="Te invito a celebrar mis XV años. Toca para abrir el sobre de invitación 💌">
+<meta name="twitter:image" content="https://TU-DOMINIO-AQUI/img/sobre_monse.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="locked">
+
+<!-- Capa de destellos/estrellitas, ambiental sobre toda la página -->
+<div class="sparkle-field" id="sparkleField" aria-hidden="true"></div>
+
+<!-- ===== SOBRE DE APERTURA ===== -->
+<div id="envelope" class="envelope">
+  <img class="ink-splash ink-splash--tl" src="img/rosas.png" alt="" aria-hidden="true">
+  <img class="ink-splash ink-splash--br" src="img/rosas.png" alt="" aria-hidden="true">
+  <svg class="envelope__seams" viewBox="0 0 500 900" preserveAspectRatio="none">
+    <path d="M0,0 L250,380 L500,0" />
+    <path d="M250,380 L250,610" />
+  </svg>
+  <svg class="envelope__seams-glint" viewBox="0 0 500 900" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,0 L250,380 L500,0" />
+    <path d="M250,380 L250,610" />
+  </svg>
+  <button id="envelopeOpen" class="envelope__seal" aria-label="Abrir invitación">
+    <span class="envelope__seal-shine" aria-hidden="true"></span>
+    <span class="envelope__seal-text">Abrir</span>
+  </button>
+  <p class="envelope__hint">Toca el sello para abrir</p>
+
+  <div class="theme-picker" id="themePicker">
+    <p class="theme-picker__label">Elige un tema de color</p>
+    <div class="theme-picker__options">
+      <button type="button" class="theme-swatch is-active" data-theme="clasico" aria-label="Tema Clásico, rojo y dorado">
+        <span class="theme-swatch__dots">
+          <span style="background:#a63a3a"></span>
+          <span style="background:#c9a227"></span>
+          <span style="background:#fdf3f1"></span>
+        </span>
+        <small>Clásico</small>
+      </button>
+      <button type="button" class="theme-swatch" data-theme="cherry" aria-label="Tema Cherry Noir">
+        <span class="theme-swatch__dots">
+          <span style="background:#9e1b32"></span>
+          <span style="background:#e63946"></span>
+          <span style="background:#f6e8ea"></span>
+        </span>
+        <small>Cherry Noir</small>
+      </button>
+      <button type="button" class="theme-swatch" data-theme="merlot" aria-label="Tema Merlot Misterioso">
+        <span class="theme-swatch__dots">
+          <span style="background:#5b1a2b"></span>
+          <span style="background:#8e2a3a"></span>
+          <span style="background:#e6d6d8"></span>
+        </span>
+        <small>Merlot</small>
+      </button>
+      <button type="button" class="theme-swatch" data-theme="sangre" aria-label="Tema Sangre Real">
+        <span class="theme-swatch__dots">
+          <span style="background:#4a0410"></span>
+          <span style="background:#b8860b"></span>
+          <span style="background:#f5efe6"></span>
+        </span>
+        <small>Sangre Real</small>
+      </button>
+      <button type="button" class="theme-swatch" data-theme="carbon" aria-label="Tema Carbón">
+        <span class="theme-swatch__dots">
+          <span style="background:#2a2220"></span>
+          <span style="background:#9c2b3a"></span>
+          <span style="background:#c9a24a"></span>
+        </span>
+        <small>Carbón</small>
+      </button>
+      <button type="button" class="theme-swatch" data-theme="medianoche" aria-label="Tema Medianoche Escarlata">
+        <span class="theme-swatch__dots">
+          <span style="background:#150a0d"></span>
+          <span style="background:#c21f3a"></span>
+          <span style="background:#cbb26a"></span>
+        </span>
+        <small>Medianoche</small>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Botón de música -->
+<button id="musicToggle" class="music-btn" aria-label="Reproducir música">
+  <svg viewBox="0 0 24 24" class="icon-note"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+</button>
+<audio id="bgMusic" loop preload="auto">
+  <source src="assets/Je_te_laisserai_des_mots.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ===== PORTADA ===== -->
+<section class="hero">
+  <img class="ink-splash ink-splash--tl" src="img/rosas.png" alt="" aria-hidden="true">
+  <img class="ink-splash ink-splash--dress" src="img/vestido.png" alt="" aria-hidden="true">
+  <div class="hero__frame">
+    <p class="reveal fade eyebrow">Mis</p>
+    <h1 class="reveal fade hero__title">XV<span>&nbsp;Años</span></h1>
+    <div class="reveal fade divider"><span></span><svg viewBox="0 0 24 24" class="flourish"><path d="M2 12c4-6 8-6 10 0s6 6 10 0"/></svg><span></span></div>
+    <h2 class="reveal fade hero__name">Monserath</h2>
+    <p class="reveal fade hero__date">19 · SEPTIEMBRE · 2026</p>
+  </div>
+  <a href="#bienvenida" class="scroll-cue reveal fade">
+    <span class="scroll-cue__circle"><svg viewBox="0 0 24 24" class="chevron"><path d="M6 9l6 6 6-6"/></svg></span>
+    <span>Desliza</span>
+  </a>
+</section>
+
+<main>
+
+  <!-- ===== BIENVENIDA ===== -->
+  <section id="bienvenida" class="section section--center section--brand">
+    <p class="reveal fade lead">
+      Te invito a celebrar el inicio de una nueva etapa en mi vida,
+      llena de sueños, metas y grandes logros.
+    </p>
+    <svg class="reveal fade heart-mark" viewBox="0 0 24 24"><path d="M12 21s-7-4.35-9.5-9A5.5 5.5 0 0112 5a5.5 5.5 0 019.5 7c-2.5 4.65-9.5 9-9.5 9z"/></svg>
+  </section>
+
+  <!-- ===== PADRES ===== -->
+  <section class="section section--center bg-alt">
+    <p class="reveal fade eyebrow">Con la bendición de Dios</p>
+    <p class="reveal fade lead lead--sm">y en compañía de mis padres</p>
+
+    <div class="people-grid people-grid--single">
+      <div class="people-block reveal fade">
+        <p>Dámaris López</p>
+        <p>y</p>
+        <p>German Ajtún</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CUENTA REGRESIVA ===== -->
+  <section class="section section--center section--splash">
+    <img class="ink-splash ink-splash--tl" src="img/rosas.png" alt="" aria-hidden="true">
+    <img class="ink-splash ink-splash--br" src="img/rosas.png" alt="" aria-hidden="true">
+    <p class="reveal fade eyebrow">Falta muy poco</p>
+    <h2 class="reveal fade section-title">Cuenta regresiva</h2>
+
+    <div class="countdown reveal fade" id="countdown" data-date="2026-09-19T15:00:00">
+      <div class="countdown__item"><span id="cd-days">00</span><small>Días</small></div>
+      <div class="countdown__item"><span id="cd-hours">00</span><small>Hrs</small></div>
+      <div class="countdown__item"><span id="cd-minutes">00</span><small>Min</small></div>
+      <div class="countdown__item"><span id="cd-seconds">00</span><small>Seg</small></div>
+    </div>
+  </section>
+
+  <!-- ===== ITINERARIO ===== -->
+  <section class="section section--center bg-alt">
+    <p class="reveal fade eyebrow">Programa</p>
+    <h2 class="reveal fade section-title">Itinerario</h2>
+
+    <div class="timeline" id="timeline">
+      <div class="timeline__track"></div>
+      <div class="timeline__progress" id="timelineProgress"></div>
+
+      <ul class="timeline__list">
+      <li class="titem">
+        <span class="titem__dot"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.35-9.5-9A5.5 5.5 0 0112 5a5.5 5.5 0 019.5 7c-2.5 4.65-9.5 9-9.5 9z"/></svg></span>
+        <div class="titem__content">
+          <span class="titem__time">15:00 HRS</span>
+          <h3 class="titem__title">Bienvenida</h3>
+          <div class="titem__icon"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.35-9.5-9A5.5 5.5 0 0112 5a5.5 5.5 0 019.5 7c-2.5 4.65-9.5 9-9.5 9z"/></svg></div>
+        </div>
+      </li>
+
+      <li class="titem">
+        <span class="titem__dot"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.35-9.5-9A5.5 5.5 0 0112 5a5.5 5.5 0 019.5 7c-2.5 4.65-9.5 9-9.5 9z"/></svg></span>
+        <div class="titem__content">
+          <span class="titem__time">17:00 HRS</span>
+          <h3 class="titem__title">Vals y<br>celebración</h3>
+          <div class="titem__icon"><svg viewBox="0 0 24 24"><path d="M12 3l2.4 5-1.2 1.6L18 20H6l4.8-10.4L9.6 8z"/></svg></div>
+        </div>
+      </li>
+
+      <li class="titem">
+        <span class="titem__dot"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.35-9.5-9A5.5 5.5 0 0112 5a5.5 5.5 0 019.5 7c-2.5 4.65-9.5 9-9.5 9z"/></svg></span>
+        <div class="titem__content">
+          <span class="titem__time">19:00 HRS</span>
+          <h3 class="titem__title">Cena</h3>
+          <div class="titem__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 15.2s-2.4-1.6-2.4-3.2a2.4 2.4 0 014.8 0c0 1.6-2.4 3.2-2.4 3.2z"/><path d="M2.5 8v5M2.5 8c-1 0-1 2.4 0 2.4M5.2 8v5"/><path d="M21.5 8v8s0 1.5-1.5 1.5"/></svg></div>
+        </div>
+      </li>
+
+      <li class="titem">
+        <span class="titem__dot"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.35-9.5-9A5.5 5.5 0 0112 5a5.5 5.5 0 019.5 7c-2.5 4.65-9.5 9-9.5 9z"/></svg></span>
+        <div class="titem__content">
+          <span class="titem__time">20:00 HRS</span>
+          <h3 class="titem__title">¡A bailar!</h3>
+          <div class="titem__icon"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+        </div>
+      </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== DÓNDE Y CUÁNDO ===== -->
+  <section class="section section--center">
+    <p class="reveal fade eyebrow">Ubicación</p>
+    <h2 class="reveal fade section-title">Dónde y cuándo</h2>
+
+    <div class="place-grid place-grid--single">
+      <div class="place-card reveal fade">
+        <img class="place-card__photo" src="img/lugar.jpg" alt="Casa Siquinyá">
+        <h3>Casa Siquinyá</h3>
+        <p class="place-card__time">19 de septiembre de 2026</p>
+        <p class="place-card__time">15:00 hrs</p>
+        <div class="place-card__actions">
+          <a class="btn btn--outline" href="https://maps.app.goo.gl/cpAAW4kG3HZujybJ7" target="_blank" rel="noopener">Google Maps</a>
+          <a class="btn btn--outline" href="https://waze.com/ul/h9fx6fc35n&navigate=yes" target="_blank" rel="noopener">Waze</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CÓDIGO DE VESTIMENTA ===== -->
+  <section class="section section--center bg-alt">
+    <p class="reveal fade eyebrow">Código de vestimenta</p>
+    <p class="reveal fade lead lead--sm">
+      Se sugiere evitar el color rojo, reservado para la quinceañera.
+    </p>
+    <div class="palette reveal fade">
+      <span style="background:#8c1c2b"></span>
+      <span style="background:#c9a227"></span>
+      <span style="background:#e9d9a8"></span>
+      <span style="background:#350a10"></span>
+      <span style="background:#ffffff;border:1px solid #ddd"></span>
+    </div>
+  </section>
+
+  <!-- ===== RSVP ===== -->
+  <section id="rsvp" class="section section--center bg-alt">
+    <p class="reveal fade eyebrow">Confirmación</p>
+    <h2 class="reveal fade section-title">¿Nos acompañas?</h2>
+    <p class="reveal fade lead lead--sm">Por favor confirma tu asistencia antes del 01 de septiembre.</p>
+
+    <div class="rsvp-whatsapp reveal fade">
+      <a
+        class="btn btn--solid btn--whatsapp"
+        href="https://wa.me/50254259365?text=%C2%A1Hola!%20Confirmo%20mi%20asistencia%20a%20los%20XV%20a%C3%B1os%20de%20Monserath%20%F0%9F%8C%B9"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <svg class="btn--whatsapp__icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12.001 2C6.478 2 2 6.477 2 12c0 1.986.579 3.836 1.578 5.393L2 22l4.735-1.548A9.953 9.953 0 0 0 12.001 22C17.523 22 22 17.523 22 12S17.523 2 12.001 2zm0 18.29a8.24 8.24 0 0 1-4.2-1.148l-.301-.179-3.114 1.018 1.03-3.037-.196-.312A8.253 8.253 0 1 1 20.25 12c0 4.55-3.7 8.29-8.249 8.29z"/>
+        </svg>
+        Confirmar por WhatsApp
+      </a>
+      <p class="rsvp-whatsapp__hint">Te llevará directo a WhatsApp con un mensaje ya escrito, listo para enviar.</p>
+    </div>
+  </section>
+
+  <!-- ===== GALERÍA (fotos que avanzan solas al deslizar) ===== -->
+  <section class="section section--center">
+    <p class="reveal fade eyebrow">Recuerdos</p>
+    <h2 class="reveal fade section-title">Galería</h2>
+
+    <div class="photo-scroller" id="photoScroller">
+      <div class="photo-scroller__sticky">
+        <div class="photo-scroller__stage">
+          <img class="photo-scroller__photo is-active" src="img/f1.png" alt="Monserrath 1">
+          <img class="photo-scroller__photo" src="img/f2.png" alt="Monserrath 2">
+          <img class="photo-scroller__photo" src="img/f3.png" alt="Monserrath 3">
+          <img class="photo-scroller__photo" src="img/f4.png" alt="Monserrath 4">
+          <img class="photo-scroller__photo" src="img/f5.png" alt="Monserrath 5">
+          <img class="photo-scroller__photo" src="img/f6.png" alt="Monserrath 6">
+          <img class="photo-scroller__photo" src="img/f7.png" alt="Monserrath 7">
+          <img class="photo-scroller__photo" src="img/f8.png" alt="Monserrath 8">
+          <img class="photo-scroller__photo" src="img/f9.png" alt="Monserrath 9">
+          <img class="photo-scroller__photo" src="img/f10.png" alt="Monserrath 10">
+        </div>
+        <div class="photo-scroller__dots" id="photoScrollerDots"></div>
+      </div>
+    </div>
+
+    <p class="reveal fade lead lead--sm">
+      Comparte tus fotos del evento con el hashtag<br><strong>#MisXVMonserath</strong>
+    </p>
+  </section>
+
+</main>
+
+<!-- ===== CIERRE ===== -->
+<footer class="footer">
+  <img class="ink-splash ink-splash--tl" src="img/rosas.png" alt="" aria-hidden="true">
+  <img class="ink-splash ink-splash--br" src="img/rosas.png" alt="" aria-hidden="true">
+  <div class="reveal fade divider divider--light"><span></span><svg viewBox="0 0 24 24" class="flourish"><path d="M2 12c4-6 8-6 10 0s6 6 10 0"/></svg><span></span></div>
+  <h2 class="reveal fade footer__title">¡Gracias por ser parte<br>de este sueño!</h2>
+  <p class="reveal fade footer__signature">Con cariño,</p>
+  <p class="reveal fade footer__signature">Monserath</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
