@@ -53,60 +53,6 @@
     <span class="envelope__seal-text">Abrir</span>
   </button>
   <p class="envelope__hint">Toca el sello para abrir</p>
-
-  <div class="theme-picker" id="themePicker">
-    <p class="theme-picker__label">Elige un tema de color</p>
-    <div class="theme-picker__options">
-      <button type="button" class="theme-swatch is-active" data-theme="clasico" aria-label="Tema Clásico, rojo y dorado">
-        <span class="theme-swatch__dots">
-          <span style="background:#a63a3a"></span>
-          <span style="background:#c9a227"></span>
-          <span style="background:#fdf3f1"></span>
-        </span>
-        <small>Clásico</small>
-      </button>
-      <button type="button" class="theme-swatch" data-theme="cherry" aria-label="Tema Cherry Noir">
-        <span class="theme-swatch__dots">
-          <span style="background:#9e1b32"></span>
-          <span style="background:#e63946"></span>
-          <span style="background:#f6e8ea"></span>
-        </span>
-        <small>Cherry Noir</small>
-      </button>
-      <button type="button" class="theme-swatch" data-theme="merlot" aria-label="Tema Merlot Misterioso">
-        <span class="theme-swatch__dots">
-          <span style="background:#5b1a2b"></span>
-          <span style="background:#8e2a3a"></span>
-          <span style="background:#e6d6d8"></span>
-        </span>
-        <small>Merlot</small>
-      </button>
-      <button type="button" class="theme-swatch" data-theme="sangre" aria-label="Tema Sangre Real">
-        <span class="theme-swatch__dots">
-          <span style="background:#4a0410"></span>
-          <span style="background:#b8860b"></span>
-          <span style="background:#f5efe6"></span>
-        </span>
-        <small>Sangre Real</small>
-      </button>
-      <button type="button" class="theme-swatch" data-theme="carbon" aria-label="Tema Carbón">
-        <span class="theme-swatch__dots">
-          <span style="background:#2a2220"></span>
-          <span style="background:#9c2b3a"></span>
-          <span style="background:#c9a24a"></span>
-        </span>
-        <small>Carbón</small>
-      </button>
-      <button type="button" class="theme-swatch" data-theme="medianoche" aria-label="Tema Medianoche Escarlata">
-        <span class="theme-swatch__dots">
-          <span style="background:#150a0d"></span>
-          <span style="background:#c21f3a"></span>
-          <span style="background:#cbb26a"></span>
-        </span>
-        <small>Medianoche</small>
-      </button>
-    </div>
-  </div>
 </div>
 
 <!-- Botón de música -->
@@ -281,26 +227,56 @@
     </div>
   </section>
 
-  <!-- ===== GALERÍA (fotos que avanzan solas al deslizar) ===== -->
+  <!-- ===== GALERÍA (recuerdos en formato polaroid, escalonados) ===== -->
   <section class="section section--center">
     <p class="reveal fade eyebrow">Recuerdos</p>
     <h2 class="reveal fade section-title">Galería</h2>
 
-    <div class="photo-scroller" id="photoScroller">
-      <div class="photo-scroller__sticky">
-        <div class="photo-scroller__stage">
-          <img class="photo-scroller__photo is-active" src="img/f1.png" alt="Monserrath 1">
-          <img class="photo-scroller__photo" src="img/f2.png" alt="Monserrath 2">
-          <img class="photo-scroller__photo" src="img/f3.png" alt="Monserrath 3">
-          <img class="photo-scroller__photo" src="img/f4.png" alt="Monserrath 4">
-          <img class="photo-scroller__photo" src="img/f5.png" alt="Monserrath 5">
-          <img class="photo-scroller__photo" src="img/f6.png" alt="Monserrath 6">
-          <img class="photo-scroller__photo" src="img/f7.png" alt="Monserrath 7">
-          <img class="photo-scroller__photo" src="img/f8.png" alt="Monserrath 8">
-          <img class="photo-scroller__photo" src="img/f9.png" alt="Monserrath 9">
-          <img class="photo-scroller__photo" src="img/f10.png" alt="Monserrath 10">
-        </div>
-        <div class="photo-scroller__dots" id="photoScrollerDots"></div>
+    <div class="memory-gallery">
+      <div class="memory-item memory-item--left reveal fade">
+        <div class="memory-item__frame"><img src="img/f1.png" alt="Monserrath 1" loading="lazy"></div>
+      </div>
+      <div class="memory-item memory-item--right reveal fade">
+        <div class="memory-item__frame"><img src="img/f2.png" alt="Monserrath 2" loading="lazy"></div>
+      </div>
+      <div class="memory-stars memory-stars--left" aria-hidden="true">
+        <span class="memory-star memory-star--a"></span>
+        <span class="memory-star memory-star--b"></span>
+        <span class="memory-star memory-star--c"></span>
+      </div>
+      <div class="memory-item memory-item--left reveal fade">
+        <div class="memory-item__frame"><img src="img/f3.png" alt="Monserrath 3" loading="lazy"></div>
+      </div>
+      <div class="memory-item memory-item--right reveal fade">
+        <div class="memory-item__frame"><img src="img/f4.png" alt="Monserrath 4" loading="lazy"></div>
+      </div>
+      <div class="memory-item memory-item--left reveal fade">
+        <div class="memory-item__frame"><img src="img/f5.png" alt="Monserrath 5" loading="lazy"></div>
+      </div>
+      <div class="memory-stars memory-stars--right" aria-hidden="true">
+        <span class="memory-star memory-star--a"></span>
+        <span class="memory-star memory-star--b"></span>
+        <span class="memory-star memory-star--c"></span>
+      </div>
+      <div class="memory-item memory-item--right reveal fade">
+        <div class="memory-item__frame"><img src="img/f6.png" alt="Monserrath 6" loading="lazy"></div>
+      </div>
+      <div class="memory-item memory-item--left reveal fade">
+        <div class="memory-item__frame"><img src="img/f7.png" alt="Monserrath 7" loading="lazy"></div>
+      </div>
+      <div class="memory-item memory-item--right reveal fade">
+        <div class="memory-item__frame"><img src="img/f8.png" alt="Monserrath 8" loading="lazy"></div>
+      </div>
+      <div class="memory-stars memory-stars--left" aria-hidden="true">
+        <span class="memory-star memory-star--a"></span>
+        <span class="memory-star memory-star--b"></span>
+        <span class="memory-star memory-star--c"></span>
+      </div>
+      <div class="memory-item memory-item--left reveal fade">
+        <div class="memory-item__frame"><img src="img/f9.png" alt="Monserrath 9" loading="lazy"></div>
+      </div>
+      <div class="memory-item memory-item--right reveal fade">
+        <div class="memory-item__frame"><img src="img/f10.png" alt="Monserrath 10" loading="lazy"></div>
       </div>
     </div>
 

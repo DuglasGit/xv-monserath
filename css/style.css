@@ -1,83 +1,19 @@
 :root {
-  --gold: #c9a227;
-  --gold-dark: #9c7a1a;
-  --gold-light: #e9d9a8;
-  --red: #a63a3a;
-  --red-dark: #7a2424;
-  --pink: #e0577e;
-  --pink-soft: #f7c9d3;
-  --muted: #ddd4cc;
-  --muted-text: #b9a89d;
-  --cream: #fdf3f1;
-  --cream-alt: #f7e2df;
-  --ink: #2f2420;
-  --white: #ffffff;
-  --font-display: 'Cormorant Garamond', serif;
-  --font-body: 'Montserrat', sans-serif;
-  --heading: var(--red-dark);
-  --heading-strong: var(--red);
-}
-
-/* Tema alterno 1: Cherry Noir (rojo cereza dramático) */
-html[data-theme="cherry"] {
-  --gold: #e63946;
-  --gold-dark: #c92e3b;
-  --gold-light: #f6e8ea;
-  --red: #9e1b32;
-  --red-dark: #5b0f1b;
-  --cream: #fdf5f6;
-  --cream-alt: #efd7da;
-  --ink: #2b0a0e;
-}
-
-/* Tema alterno 2: Merlot Misterioso (vino profundo, elegante) */
-html[data-theme="merlot"] {
-  --gold: #8e2a3a;
-  --gold-dark: #6e2130;
-  --gold-light: #e6d6d8;
-  --red: #5b1a2b;
-  --red-dark: #2e0f1b;
-  --cream: #f7f0f1;
-  --cream-alt: #e6d6d8;
-  --ink: #0e0b10;
-}
-
-/* Tema alterno 3: Sangre Real (rojo casi negro, muy oscuro y dramático) */
-html[data-theme="sangre"] {
-  --gold: #b8860b;
-  --gold-dark: #8f680a;
-  --gold-light: #e3c98a;
-  --red: #4a0410;
-  --red-dark: #2b0209;
-  --cream: #f5efe6;
-  --cream-alt: #e8ddc9;
-  --ink: #1a0a05;
-}
-
-/* Tema alterno 4: Carbón (semi-oscuro, fondo carbón con granate y latón) */
-html[data-theme="carbon"] {
   --gold: #c9a24a;
   --gold-dark: #a17f34;
   --gold-light: #e4cf95;
   --red: #9c2b3a;
   --red-dark: #6e1c28;
+  --pink: #e0577e;
+  --pink-soft: #f7c9d3;
+  --muted: #ddd4cc;
+  --muted-text: #b9a89d;
   --cream: #2a2220;
   --cream-alt: #342925;
   --ink: #ece3d8;
-  --heading: var(--gold);
-  --heading-strong: var(--gold);
-}
-
-/* Tema alterno 5: Medianoche Escarlata (modo oscuro, dramático) */
-html[data-theme="medianoche"] {
-  --gold: #cbb26a;
-  --gold-dark: #a08947;
-  --gold-light: #e8ddba;
-  --red: #c21f3a;
-  --red-dark: #8a1029;
-  --cream: #150a0d;
-  --cream-alt: #211116;
-  --ink: #f2e7de;
+  --white: #ffffff;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'Montserrat', sans-serif;
   --heading: var(--gold);
   --heading-strong: var(--gold);
 }
@@ -353,70 +289,11 @@ img { max-width: 100%; display: block; }
 
 .envelope.is-opening .envelope__seal { transform: scale(0.55); opacity: 0; }
 .envelope.is-opening .envelope__hint { opacity: 0; }
-.envelope.is-opening .theme-picker { opacity: 0; }
 .envelope.is-open {
   opacity: 0;
   transform: scale(1.06);
   pointer-events: none;
 }
-
-/* ===== Selector de tema (temporal, para elegir paleta) ===== */
-.theme-picker {
-  position: relative;
-  z-index: 2;
-  margin-top: 34px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  transition: opacity 0.5s ease;
-}
-.theme-picker__label {
-  font-size: 0.62rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold-dark);
-  opacity: 0.85;
-}
-.theme-picker__options {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px 14px;
-  max-width: 260px;
-}
-.theme-swatch {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 6px;
-  font-family: var(--font-body);
-}
-.theme-swatch__dots {
-  display: flex;
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 2px solid transparent;
-  transition: border-color 0.25s ease, transform 0.25s ease;
-}
-.theme-swatch__dots span { flex: 1; height: 100%; }
-.theme-swatch small {
-  font-size: 0.58rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #7a6a63;
-}
-.theme-swatch.is-active .theme-swatch__dots {
-  border-color: var(--gold-dark);
-  transform: scale(1.12);
-}
-.theme-swatch.is-active small { color: var(--gold-dark); font-weight: 600; }
 
 /* ===== Music button ===== */
 .music-btn {
@@ -851,64 +728,75 @@ body.invitation-open .music-btn { opacity: 1; pointer-events: auto; }
   max-width: 340px;
 }
 
-/* ===== Galería: fotos que avanzan solas al deslizar la página ===== */
-.photo-scroller {
+/* ===== Galería: recuerdos en formato polaroid, escalonados ===== */
+.memory-gallery {
   position: relative;
-  height: 480vh;
-  max-height: 3400px;
-  margin-bottom: 30px;
-}
-.photo-scroller__sticky {
-  position: sticky;
-  top: 14vh;
-  height: 72vh;
-  max-height: 460px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
-}
-.photo-scroller__stage {
-  position: relative;
-  width: 260px;
-  height: 325px;
-  transition: width 0.4s ease, height 0.4s ease;
-}
-.photo-scroller__photo {
-  position: absolute;
-  inset: 0;
+  align-items: stretch;
+  gap: 8px;
   width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 8px;
-  border: 4px solid var(--white);
-  outline: 1px solid var(--gold-light);
-  box-shadow: 0 14px 30px rgba(0,0,0,0.18);
-  opacity: 0;
-  transform: scale(0.92);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  max-width: 480px;
+  margin: 10px auto 24px;
+  padding: 0 6px;
 }
-.photo-scroller__photo.is-active {
-  opacity: 1;
-  transform: scale(1);
+.memory-item {
+  display: flex;
+  width: 100%;
+}
+.memory-item--left { justify-content: flex-start; }
+.memory-item--right { justify-content: flex-end; }
+.memory-item__frame {
+  width: 220px;
+  background: linear-gradient(155deg, var(--cream-alt) 0%, var(--cream) 100%);
+  border: 1px solid var(--gold-light);
+  border-radius: 4px;
+  padding: 12px 12px 30px;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.45);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.memory-item--left .memory-item__frame { transform: rotate(-4deg); margin-left: 4%; }
+.memory-item--right .memory-item__frame { transform: rotate(4deg); margin-right: 4%; }
+.memory-item__frame:hover {
+  transform: rotate(0deg) scale(1.04);
+  box-shadow: 0 20px 38px rgba(0, 0, 0, 0.55);
+}
+.memory-item__frame img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
 }
 
-.photo-scroller__dots {
-  display: flex;
-  gap: 7px;
+.memory-stars {
+  position: relative;
+  height: 56px;
+  width: 100%;
 }
-.photo-scroller__dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--muted);
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease;
+.memory-star {
+  position: absolute;
+  --speak: 0.9;
+  background: var(--gold-light);
+  clip-path: polygon(50% 0%, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0% 50%, 39% 39%);
+  filter: drop-shadow(0 0 8px var(--gold));
+  animation: sparkle-twinkle 2.4s ease-in-out infinite;
 }
-.photo-scroller__dot.is-active {
-  background: var(--red);
-  transform: scale(1.6);
+.memory-star--a { width: 26px; height: 26px; top: 6px; transform: rotate(10deg); animation-delay: 0s; }
+.memory-star--b { width: 15px; height: 15px; top: 32px; transform: rotate(-16deg); animation-delay: 0.5s; }
+.memory-star--c { width: 19px; height: 19px; top: 0; transform: rotate(28deg); animation-delay: 1s; }
+.memory-stars--left .memory-star--a { left: 14%; }
+.memory-stars--left .memory-star--b { left: 26%; }
+.memory-stars--left .memory-star--c { left: 21%; }
+.memory-stars--right .memory-star--a { right: 14%; }
+.memory-stars--right .memory-star--b { right: 26%; }
+.memory-stars--right .memory-star--c { right: 21%; }
+@media (prefers-reduced-motion: reduce) {
+  .memory-star { animation: none; }
+}
+
+@media (max-width: 560px) {
+  .memory-item__frame { width: 66vw; max-width: 240px; }
 }
 
 /* ===== Footer ===== */
